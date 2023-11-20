@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Hike Name -->
+    <TextView
+        android:id="@+id/textViewHikeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hike Name"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:paddingBottom="8dp"/>
+
+    <!-- Hike Location -->
+    <TextView
+        android:id="@+id/textViewHikeLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:paddingBottom="8dp"/>
+
+    <!-- Hike Date -->
+    <TextView
+        android:id="@+id/textViewHikeDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:paddingBottom="8dp"/>
+
+    <!-- Additional hike details like difficulty, parking, etc. -->
+    <!-- Hike Parking -->
+    <TextView
+        android:id="@+id/textViewHikeParking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parking Available"
+        android:paddingBottom="8dp"/>
+
+    <!-- Hike Difficulty -->
+    <TextView
+        android:id="@+id/textViewHikeDifficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Difficulty"
+        android:paddingBottom="8dp"/>
+
+    <!-- Hike Length -->
+    <TextView
+        android:id="@+id/textViewHikeLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Length"
+        android:paddingBottom="8dp"/>
+
+    <!-- Hike Description -->
+    <TextView
+        android:id="@+id/textViewHikeDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:paddingBottom="8dp"/>
+
+    <!-- Number of Participants -->
+    <TextView
+        android:id="@+id/textViewHikeParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Participants"
+        android:paddingBottom="8dp"/>
+
+    <!-- Edit Button -->
+    <Button
+        android:id="@+id/buttonEditHike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/buttonDeleteHike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Obsevations Button -->
+    <Button
+        android:id="@+id/buttonObservations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Observations"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

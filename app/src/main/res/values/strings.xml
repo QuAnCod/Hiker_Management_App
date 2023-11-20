@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Hiker Management</string>
+    <string-array name="hikeDifficulty">
+        <item>Chill</item>
+        <item>Newbie</item>
+        <item>Amateur</item>
+        <item>Intermediate</item>
+        <item>Expert</item>
+        <item>Master</item>
+    </string-array>
+</resources>
