@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ViewHikeActivity extends AppCompatActivity {
-    private TextView textViewHikeName, textViewHikeLocation, textViewHikeDate,  textViewHikeParking, textViewHikeDifficulty, textViewHikeLength, textViewHikeDescription, textViewHikeNumOfParticipants;
+    private TextView txthikeId, textViewHikeName, textViewHikeLocation, textViewHikeDate,  textViewHikeParking, textViewHikeDifficulty, textViewHikeLength, textViewHikeDescription, textViewHikeNumOfParticipants;
     private Button buttonEditHike, buttonDeleteHike;
     private DatabaseHelper db;
-    private String hikeId; // The ID of the displayed hike
+   // private int hikeId; // The ID of the displayed hike
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class ViewHikeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_hike);
 
         // Initialize views
+        txthikeId = findViewById(R.id.txthikeId);
         textViewHikeName = findViewById(R.id.textViewHikeName);
         textViewHikeLocation = findViewById(R.id.textViewHikeLocation);
         textViewHikeDate = findViewById(R.id.textViewHikeDate);
@@ -38,13 +39,14 @@ public class ViewHikeActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         // Get the passed hike ID
-        hikeId = String.valueOf(getIntent().getIntExtra("HIKE_ID", -1));
+        String id = getIntent().getStringExtra("HIKE_ID");
+        txthikeId.setText(id);
         loadHikeDetails();
 
         // Edit Button
         buttonEditHike.setOnClickListener(v -> {
             Intent intent = new Intent(ViewHikeActivity.this, EditHikeActivity.class);
-            intent.putExtra("HIKE_ID", hikeId);
+            intent.putExtra("HIKE_ID", txthikeId.getText().toString());
             startActivityForResult(intent, 1);
         });
 
@@ -53,7 +55,7 @@ public class ViewHikeActivity extends AppCompatActivity {
                 .setTitle("Delete Hike")
                 .setMessage("Are you sure you want to delete this hike?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    db.deleteHike(Integer.parseInt(hikeId));
+                    db.deleteHike(Integer.parseInt(txthikeId.getText().toString()));
                     setResult(RESULT_OK);
                     finish();
                 })
@@ -63,13 +65,13 @@ public class ViewHikeActivity extends AppCompatActivity {
         Button addObservationButton = findViewById(R.id.buttonObservations);
         addObservationButton.setOnClickListener(v -> {
             Intent intent = new Intent(ViewHikeActivity.this, ObservationListActivity.class);
-            intent.putExtra("HIKE_ID", hikeId);
+            intent.putExtra("HIKE_ID", txthikeId.getText().toString());
             startActivity(intent);
         });
     }
 
     private void loadHikeDetails() {
-        Hike hike = db.getHikeById(Integer.parseInt(hikeId));
+        Hike hike = db.getHikeById(Integer.parseInt(txthikeId.getText().toString()));
         if (hike != null) {
             textViewHikeName.setText(hike.getName());
             textViewHikeLocation.setText(hike.getLocation());

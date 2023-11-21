@@ -43,7 +43,7 @@ public class EditHikeActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         // Get hike ID from intent
-        int hikeId = getIntent().getIntExtra("HIKE_ID", -1);
+        int hikeId = Integer.parseInt(getIntent().getStringExtra("HIKE_ID"));
 
         // Initialize the spinner with difficulty levels
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.hikeDifficulty, android.R.layout.simple_spinner_item);
